@@ -5,37 +5,43 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
-import com.codecafe.tdd.multicurrencymoney.model.Dollar;
-import com.codecafe.tdd.multicurrencymoney.model.Rupee;
+import com.codecafe.tdd.multicurrencymoney.model.Money;
 
 public class MoneyTest {
 
 	@Test
 	void testDollarMultiplication() {
-		Dollar five = new Dollar(5);
-		Dollar product = five.times(2);
-		assertEquals(new Dollar(10), product);
+		Money five = Money.dollar(5);
+		assertEquals(Money.dollar(10), five.times(2));
 
-		Dollar three = new Dollar(3);
-		product = three.times(10);
-		assertEquals(new Dollar(30), product);
+		Money three = Money.dollar(3);
+		assertEquals(Money.dollar(30), three.times(10));
 	}
 
 	@Test
 	void testDollarEquality() {
-		assertEquals(new Dollar(5), new Dollar(5));
-		assertNotEquals(new Dollar(10), new Dollar(20));
+		assertEquals(Money.dollar(5), Money.dollar(5));
+		assertNotEquals(Money.dollar(10), Money.dollar(20));
+	}
+
+	@Test
+	void testDollarAndRupeeEquality() {
+		assertNotEquals(Money.dollar(10), Money.rupee(10));
+	}
+
+	@Test
+	void testRupeeEquality() {
+		assertEquals(Money.rupee(5), Money.rupee(5));
+		assertNotEquals(Money.rupee(10), Money.rupee(20));
 	}
 
 	@Test
 	void testRupeeMultiplication() {
-		Rupee five = new Rupee(5);
-		Rupee product = five.times(2);
-		assertEquals(new Rupee(10), product);
+		Money five = Money.rupee(5);
+		assertEquals(Money.rupee(10), five.times(2));
 
-		Rupee three = new Rupee(3);
-		product = three.times(10);
-		assertEquals(new Rupee(30), product);
+		Money three = Money.rupee(3);
+		assertEquals(Money.rupee(30), three.times(10));
 	}
 
 }
