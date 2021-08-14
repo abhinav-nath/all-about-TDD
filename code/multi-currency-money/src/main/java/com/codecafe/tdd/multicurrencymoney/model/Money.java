@@ -27,9 +27,14 @@ public class Money implements Expression {
 	public Money times(int multiplier) {
 		return new Money(this.amount *= multiplier, this.currency);
 	}
-	
+
 	public Expression plus(Money addend) {
-		return new Money(this.amount + addend.amount, this.currency);
+		return new Sum(this, addend);
+	}
+
+	@Override
+	public Money reduce(String toCurrency) {
+		return this;
 	}
 
 	@Override

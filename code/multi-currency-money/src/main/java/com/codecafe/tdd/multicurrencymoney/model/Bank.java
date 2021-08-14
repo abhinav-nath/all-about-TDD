@@ -2,8 +2,9 @@ package com.codecafe.tdd.multicurrencymoney.model;
 
 public class Bank {
 
+	// reduce an operation to a specified currency
 	public Money reduce(Expression source, String toCurrency) {
-		return Money.dollar(10);
+		return source.reduce(toCurrency);
 	}
 
 }
