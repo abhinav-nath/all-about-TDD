@@ -10,7 +10,7 @@ import com.codecafe.tdd.multicurrencymoney.model.Money;
 public class MoneyTest {
 
 	@Test
-	void testDollarMultiplication() {
+	void testMultiplication() {
 		Money five = Money.dollar(5);
 		assertEquals(Money.dollar(10), five.times(2));
 
@@ -19,29 +19,12 @@ public class MoneyTest {
 	}
 
 	@Test
-	void testDollarEquality() {
+	void testEquality() {
 		assertEquals(Money.dollar(5), Money.dollar(5));
 		assertNotEquals(Money.dollar(10), Money.dollar(20));
-	}
 
-	@Test
-	void testDollarAndRupeeEquality() {
-		assertNotEquals(Money.dollar(10), Money.rupee(10));
-	}
-
-	@Test
-	void testRupeeEquality() {
 		assertEquals(Money.rupee(5), Money.rupee(5));
-		assertNotEquals(Money.rupee(10), Money.rupee(20));
-	}
-
-	@Test
-	void testRupeeMultiplication() {
-		Money five = Money.rupee(5);
-		assertEquals(Money.rupee(10), five.times(2));
-
-		Money three = Money.rupee(3);
-		assertEquals(Money.rupee(30), three.times(10));
+		assertNotEquals(Money.dollar(10), Money.rupee(10));
 	}
 
 	@Test
