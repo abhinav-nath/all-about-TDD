@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
+import com.codecafe.tdd.multicurrencymoney.model.Bank;
+import com.codecafe.tdd.multicurrencymoney.model.Expression;
 import com.codecafe.tdd.multicurrencymoney.model.Money;
 
 public class MoneyTest {
@@ -31,6 +33,15 @@ public class MoneyTest {
 	void testCurrency() {
 		assertEquals("USD", Money.dollar(1).currency());
 		assertEquals("INR", Money.rupee(1).currency());
+	}
+
+	@Test
+	void testSimpleAddition() {
+		Money five = Money.dollar(5);
+		Expression sum = five.plus(five);
+		Bank bank = new Bank();
+		Money reduced = bank.reduce(sum, "USD");
+		assertEquals(Money.dollar(10), reduced);
 	}
 
 }

@@ -1,6 +1,6 @@
 package com.codecafe.tdd.multicurrencymoney.model;
 
-public class Money {
+public class Money implements Expression {
 
 	protected int amount;
 	protected String currency;
@@ -8,14 +8,6 @@ public class Money {
 	public Money(int amount, String currency) {
 		this.amount = amount;
 		this.currency = currency;
-	}
-
-	public String currency() {
-		return this.currency;
-	}
-
-	public Money times(int multiplier) {
-		return new Money(this.amount *= multiplier, this.currency);
 	}
 
 	// factory methods - start
@@ -27,6 +19,18 @@ public class Money {
 		return new Money(amount, "INR");
 	}
 	// factory methods - end
+
+	public String currency() {
+		return this.currency;
+	}
+
+	public Money times(int multiplier) {
+		return new Money(this.amount *= multiplier, this.currency);
+	}
+	
+	public Expression plus(Money addend) {
+		return new Money(this.amount + addend.amount, this.currency);
+	}
 
 	@Override
 	public boolean equals(Object obj) {
