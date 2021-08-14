@@ -44,4 +44,10 @@ public class MoneyTest {
 		assertEquals(Money.rupee(30), three.times(10));
 	}
 
+	@Test
+	void testCurrency() {
+		assertEquals("USD", Money.dollar(1).currency());
+		assertEquals("INR", Money.rupee(1).currency());
+	}
+
 }

@@ -4,12 +4,12 @@ package com.codecafe.tdd.multicurrencymoney.model;
 // meaning it only contains the amount
 public class Rupee extends Money {
 
-	public Rupee(int amount) {
-		this.amount = amount;
+	public Rupee(int amount, String currency) {
+		super(amount, currency);
 	}
 
 	public Money times(int multiplier) {
-		return new Rupee(this.amount *= multiplier);
+		return Money.rupee(this.amount *= multiplier);
 	}
 
 }
