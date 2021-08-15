@@ -1,4 +1,4 @@
-package com.codecafe.tdd.basics;
+package com.codecafe.tdd.junit.basics.utils;
 
 public class DateUtils {
 

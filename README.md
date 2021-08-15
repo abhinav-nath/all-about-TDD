@@ -33,3 +33,20 @@
   ```java
   assertEquals(2, basket.getItemCount());
   ```
+
+## General Approach of TDD
+
+* Write tests first
+* Work in small increments
+* Deliberately stub or over simplify
+* Grow the code around the tests
+* Refactor continuosly to keep it clean and readable
+
+## Benefits of TDD
+
+* Only a tiny problem to solve at a time
+* Code so far is always working ...
+* ... and protected
+* Feedback loop is quicker than running your app
+* Easy to experiment
+* Code ends up clearer because you are the user
