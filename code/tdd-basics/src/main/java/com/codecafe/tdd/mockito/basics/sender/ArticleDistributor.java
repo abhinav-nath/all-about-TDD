@@ -1,6 +1,8 @@
 package com.codecafe.tdd.mockito.basics.sender;
 
-import com.codecafe.tdd.mockito.basics.client.Channel;
+import com.codecafe.tdd.mockito.basics.client.EntertainmentChannel;
+import com.codecafe.tdd.mockito.basics.client.OtherChannel;
+import com.codecafe.tdd.mockito.basics.client.SportsChannel;
 import com.codecafe.tdd.mockito.basics.database.ArticleDataAccess;
 import com.codecafe.tdd.mockito.basics.model.Article;
 
@@ -9,13 +11,13 @@ import com.codecafe.tdd.mockito.basics.model.Article;
  */
 public class ArticleDistributor {
 
-	private Channel sportChannel;
-	private Channel entertainmentChannel;
-	private Channel otherChannel;
+	private SportsChannel sportsChannel;
+	private EntertainmentChannel entertainmentChannel;
+	private OtherChannel otherChannel;
 	private ArticleDataAccess dataAccess;
 
-	public ArticleDistributor(Channel sportChannel, Channel entertainmentChannel, Channel otherChannel, ArticleDataAccess dataAccess) {
-		this.sportChannel = sportChannel;
+	public ArticleDistributor(SportsChannel sportsChannel, EntertainmentChannel entertainmentChannel, OtherChannel otherChannel, ArticleDataAccess dataAccess) {
+		this.sportsChannel = sportsChannel;
 		this.entertainmentChannel = entertainmentChannel;
 		this.otherChannel = otherChannel;
 		this.dataAccess = dataAccess;
@@ -26,8 +28,8 @@ public class ArticleDistributor {
 		for (Article article : dataAccess.getTodaysArticles()) {
 
 			switch (article.getType()) {
-			case SPORT:
-				this.sportChannel.accept(article);
+			case SPORTS:
+				this.sportsChannel.accept(article);
 				break;
 			case ENTERTAINMENT:
 				this.entertainmentChannel.accept(article);
