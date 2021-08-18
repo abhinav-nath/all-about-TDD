@@ -16,8 +16,14 @@
   ```java
   assertEquals(2, basket.getItemCount());
   ```
+  
+## or [Arrange / Act / Assert](http://wiki.c2.com/?ArrangeActAssert "Arrange Act Assert")
 
-## BDD - Given / When / Then
+* **Arrange** : Setup your data and any necessary input that your test will use;
+* **Act** : Do the actual work that the test will be testing;
+* **Assert** : Check that what you expected really happened - or not;
+
+## BDD - [Given / When / Then](https://martinfowler.com/bliki/GivenWhenThen.html "Given When Then")
 
 * **Given** a basket with an item in it
   ```java
