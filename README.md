@@ -4,7 +4,7 @@
 
 * **Prepare** a basket with an item in it
   ```java
-     Basket basket = new Basket(new Item("Apple"));
+  Basket basket = new Basket(new Item("Apple"));
   ```
 
 * **Act** : Add another item in it
